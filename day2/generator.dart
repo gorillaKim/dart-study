@@ -12,7 +12,9 @@ Iterable<int> recursiveCountdown(int from) sync* {
 }
 
 void main() {
-  print(recursiveCountdown(3));
+  var result = recursiveCountdown(3);
+  print(result.runtimeType);
+  print([...result]);
   for (var value in countdown(3)) {
     print(value);
   }
