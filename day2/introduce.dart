@@ -8,23 +8,37 @@
  *   - 이때 대괄호는 argument 순서상 가장 마지막에만 위치할수 있다.
 */
 
-String introduce1({String name = "김영환", required int age}) {
+void printTitle(String title) {
   String hr = "=" * 5;
-  print(hr + " named parameter " + hr);
+  print(hr + " $title " + hr);
+}
+
+String introduce1({String name = "김영환", required int age}) {
   return '$name은(는) $age세 입니다.';
 }
 
 String introduce2(int age, [String name = "김영환"]) {
-  String hr = "=" * 5;
-  print(hr + " unnamed parameter " + hr);
   return '$name은(는) $age세 입니다.';
 }
 
+int factorial(int number) {
+  if (number < 1) {
+    return 1;
+  }
+  return number * factorial(number - 1);
+}
+
 void main() {
+  printTitle("named parameter");
   print(introduce1(age: 3));
   print(introduce1(name: '임한민', age: 3));
   print(introduce1(name: '남승철', age: 3));
+  printTitle("unnamed parameter");
   print(introduce2(3));
   print(introduce2(3, '임한민'));
   print(introduce2(3, '남승철'));
+  printTitle("recursive function");
+  print(factorial(3));
+  print(factorial(4));
+  print(factorial(5));
 }
